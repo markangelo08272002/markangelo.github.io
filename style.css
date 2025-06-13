@@ -1,0 +1,422 @@
+/* Google Fonts for a sporty, modern look */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Enable smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* Sporty/Modern Color Palette */
+    --dark-bg-1: #0D0D0D;       /* Darkest background */
+    --dark-bg-2: #1A1A1A;       /* Slightly lighter dark background */
+    --accent-red: #D82C2C;      /* Jordan Red */
+    --accent-red-hover: #FF0000; /* Brighter red on hover */
+    --text-light: #E0E0E0;      /* Light grey for general text */
+    --text-lighter: #BBBBBB;    /* Lighter grey for taglines, secondary text */
+    --text-dark-input: #222;    /* Dark input background */
+    --border-dark: #444;        /* Dark grey border */
+    --white: #FFFFFF;           /* Pure white */
+
+    /* Fonts */
+    --heading-font: 'Oswald', sans-serif;
+    --body-font: 'Montserrat', sans-serif;
+}
+
+/* General Body and Layout */
+body {
+    font-family: var(--body-font); /* Clean, modern font */
+    background: linear-gradient(135deg, var(--dark-bg-1) 0%, var(--dark-bg-2) 100%); /* Dark, sleek background */
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative;
+    color: var(--text-light); /* Light grey for general text */
+}
+
+/* Subtle background pattern for texture */
+body::before {
+    content: '';
+    position: fixed; /* Fixed so it doesn't scroll with content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity=".02"><path d="M0 40L40 0H0v40zM40 40L0 0h40v40z"/></g></g></svg>');
+    opacity: 0.8;
+    z-index: -1;
+}
+
+/* Container for sections */
+.container {
+    width: 90%;
+    max-width: 960px; /* Reduced max-width for a more compact layout */
+    margin: auto;
+    padding: 15px 0; /* Slightly reduced padding */
+}
+
+/* Header - Hero Section */
+header {
+    background-image: url('1.jpg'); /* Your image as background */
+    background-size: cover; /* Covers the entire header area */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    position: relative; /* Needed for the overlay pseudo-element */
+    z-index: 1; /* Above the body::before pattern */
+
+    color: var(--white); /* Ensure text is white for contrast */
+    padding: 120px 0; /* Increased padding for a taller header */
+    text-align: center;
+    overflow: hidden; /* Important for parallax or zoom effects if you add them later */
+}
+
+/* Overlay for Header Background Image */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay (adjust 0.5 for more/less transparency) */
+    z-index: 0; /* Ensures overlay is beneath the text */
+}
+
+/* Inner container for header content */
+header .hero-content {
+    background-color: transparent; /* Make it transparent */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 30px; /* Retain padding for content inside */
+    border-radius: 12px;
+    box-shadow: none; /* Remove box shadow */
+    border: none; /* Remove border */
+    position: relative; /* Ensure text is above the overlay */
+    z-index: 1; /* Place content above the ::before overlay */
+}
+
+header h1 {
+    font-family: var(--heading-font);
+    font-size: 3.2em;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    line-height: 1.1;
+}
+
+.tagline {
+    color: var(--text-lighter);
+    font-family: var(--body-font);
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* Main Navigation Bar */
+.main-nav {
+    background-color: var(--dark-bg-2);
+    padding: 12px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: var(--heading-font);
+}
+
+.main-nav .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.nav-button {
+    background-color: var(--accent-red);
+    color: var(--white);
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    border: none;
+}
+
+.nav-button:hover {
+    background-color: var(--accent-red-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
+
+/* Main Content Area */
+main {
+    flex-grow: 1;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+section.container {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
+    scroll-margin-top: 120px;
+}
+
+h2 {
+    color: var(--white);
+    font-family: var(--heading-font);
+    font-size: 2.4em;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+p {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 1em;
+    text-align: justify;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li {
+    margin-bottom: 8px;
+    font-size: 1em;
+    color: var(--text-light);
+}
+
+ul li strong {
+    color: var(--accent-red);
+}
+
+/* NEW: Styles for the formal picture in About Me */
+.about-me-picture {
+    display: block; /* Ensures it takes up its own line */
+    max-width: 250px; /* Adjust max-width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto 25px auto; /* Center it and add space below */
+    border-radius: 8px; /* Slightly rounded corners for a softer look */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.about-me-picture:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+
+/* Skills Section Specifics */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.skill-tag {
+    background-color: var(--dark-bg-2);
+    color: var(--text-light);
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-family: var(--body-font);
+    font-weight: 500;
+    font-size: 0.95em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.skill-tag:hover {
+    background-color: var(--accent-red);
+    color: var(--white);
+    transform: translateY(-3px);
+    cursor: default;
+    box-shadow: 0 4px 12px rgba(216, 44, 44, 0.4);
+}
+
+/* Project Items */
+.project-item {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+.project-item h3 {
+    font-family: var(--heading-font);
+    color: var(--white);
+    font-size: 1.8em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.project-img {
+    max-width: 90%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.project-item p {
+    color: var(--text-lighter);
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+/* Buttons (used for project links) */
+.button {
+    display: inline-block;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 8px 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--heading-font);
+}
+
+/* Primary Button (Login, Submit) - Jordan Red */
+.button-primary {
+    background-color: var(--accent-red);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(216, 44, 44, 0.4);
+}
+
+.button-primary:hover {
+    background-color: var(--accent-red-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.6);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--dark-bg-2);
+    color: var(--text-lighter);
+    margin-top: 40px;
+    font-family: var(--body-font);
+    font-size: 0.9em;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+    margin: 0;
+    color: inherit;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 100px 0;
+    }
+    header h1 {
+        font-size: 2.5em;
+    }
+    .tagline {
+        font-size: 0.95em;
+    }
+    .about-me-picture {
+        max-width: 200px; /* Adjust for smaller screens */
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    section.container {
+        padding: 25px;
+    }
+    .skills-grid {
+        gap: 8px;
+    }
+    .skill-tag {
+        padding: 6px 15px;
+        font-size: 0.85em;
+    }
+    .main-nav .container {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .nav-button {
+        width: 85%;
+        padding: 8px 18px;
+        font-size: 0.95em;
+    }
+    .project-item h3 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 80px 0;
+    }
+    header .hero-content {
+        padding: 25px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    .about-me-picture {
+        max-width: 150px; /* Further adjust for very small screens */
+        margin-bottom: 15px;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    p, ul li, .skill-tag, .project-item p {
+        font-size: 0.9em;
+    }
+    .project-item {
+        padding: 15px;
+    }
+    .project-item h3 {
+        font-size: 1.2em;
+    }
+    .button {
+        padding: 8px 20px;
+        font-size: 0.9em;
+    }
+    footer {
+        padding: 15px;
+    }
+}
